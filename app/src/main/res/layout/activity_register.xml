@@ -17,7 +17,10 @@
 
 
 
-        <EditText
+
+
+
+            <EditText
             android:id="@+id/register_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,6 +33,10 @@
             android:maxLines="1"
             android:textIsSelectable="false"
             android:textStyle="bold"/>
+
+
+
+
 
 
 
@@ -77,13 +84,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/prompt_password_again"
-            android:imeActionId="@+id/register_form_finished"
+            android:imeActionId="@integer/register_form_finished"
             android:imeActionLabel="@string/action_sign_up"
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
             android:textStyle="bold"
-            tools:ignore="InvalidImeActionId" />
+             />
 
 
 
@@ -98,6 +105,8 @@
         android:layout_marginTop="16dp"
         android:text="@string/action_sign_up"
         android:textStyle="bold"/>
+
+
 
 
 
