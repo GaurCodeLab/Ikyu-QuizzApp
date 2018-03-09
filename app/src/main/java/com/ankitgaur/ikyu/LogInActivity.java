@@ -81,27 +81,28 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     // TODO: Use FirebaseAuth to sign in with email & password
-     //  mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this,new OnCompleteListener<AuthResult>() {
-      //  @Override
-       // public void onComplete (@NonNull Task < AuthResult > task) {
+       mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this,new OnCompleteListener<AuthResult>() {
+           @Override
+    }
+        public void onComplete (@NonNull Task < AuthResult > task) {
 
-         //   Log.d("ikyu", "signInWithEmail() onComplete: " + task.isSuccessful());
+            Log.d("ikyu", "signInWithEmail() onComplete: " + task.isSuccessful());
 
-          //  if (!task.isSuccessful()) {
-          //      Log.d("ikyu", "Problem signing in: " + task.getException());
-           // }
-          //  showErrorDialog("There was a problem signing in");
-      //  } else{
-       //     Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-       //     finish();
-       //     startActivity(intent);
-      //  }
-  //  }//
+            if (!task.isSuccessful()) {
+                Log.d("ikyu", "Problem signing in: " + task.getException());
+            }
+            showErrorDialog("There was a problem signing in");
+        } else{
+            Intent intent = new Intent(LogInActivity.this, CategoryActivity.class);
+            finish();
+            startActivity(intent);
+        }
+    }
 
-   // });
+    });
 
 
-//}
+}
 
     // TODO: Show error on screen with an alert dialog
     private void showErrorDialog(String message) {

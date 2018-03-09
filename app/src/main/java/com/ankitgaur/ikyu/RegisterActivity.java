@@ -129,27 +129,45 @@ public class RegisterActivity extends AppCompatActivity {
 
     // TODO: Create a Firebase user
 
-    private void CreateFirebaseUser(){
+    private void CreateFirebaseUser() {
 
-        String email= mEmailView.getText().toString();
-        String password= mPasswordView.getText().toString();
-        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        String email = mEmailView.getText().toString();
+        String password = mPasswordView.getText().toString();
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Log.d("ikyu", "createuser Oncomplete  " + task.isSuccessful());
 
-                if(!task.isSuccessful()){
+                if (!task.isSuccessful()) {
                     Log.d("ikyu", "creation user failed" + task.getException().getMessage());
+                    showErrorDialog("Registration attempt failed");
+                } else {
+                    saveDisplayName();
+                    Intent intent = new Intent(RegisterActivity.this, LogInActivity.class);
+                    finish();
+                    startActivity(intent);
                 }
             }
         });
+    }
 
     // TODO: Save the display name to Shared Preferences
-
-
+        private void saveDisplayName(){
+        String displayName = mUsernameView.getText().toString();
+        SharedPreferences prefs = getSharedPreferences(CHAT_PREFS, 0);
+        prefs.edit().putString(DISPLAY_NAME_KEY, displayName).apply();
+    }
     // TODO: Create an alert dialog to show in case registration failed
+        private void showErrorDialog(String message){
+            new AlertDialog.Builder(this)
+                    .setTitle("Oops")
+                    .setMessage(message)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
 
 
 
+}
 
-}}
