@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".LogInActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".CategoryActivity"></activity>
+        <activity android:name=".CategoryActivity" />
+        <activity android:name=".General_KNowledge_Activity"></activity>
     </application>
 
 </manifest>
