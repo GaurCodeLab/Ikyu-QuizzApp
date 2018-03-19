@@ -13,5 +13,8 @@
     <color name="dark_green">#008000</color>
     <color name="categoryBack">#009688</color>
     <color name="grid_background">#80CBC4</color>
+    <color name="textColor">#000</color>
+    <color name="colorButtonNormal">#009688</color>
+    <color name="ripple_white">#fcfcfc</color>
 
 </resources>

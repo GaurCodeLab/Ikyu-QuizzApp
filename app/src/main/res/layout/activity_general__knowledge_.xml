@@ -1,96 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/activity_main"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding= "utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_quiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:background="@color/colorPrimaryDark"
-    tools:context=".CategoryActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/biggk"
+    android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:indeterminate="false" />
 
     <TextView
-        android:id="@+id/score"
-
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Question to answer:"
+        android:padding="4dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/question"
+        android:textAppearance="@android:style/TextAppearance.Holo.Large"
+        android:textStyle="normal|bold" />
 
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
 
-        android:textColor="@color/black"
-
-        android:textSize="25sp"
-        android:text="initial_score"
-        android:padding="10dp"
-        tools:ignore="RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/question_text_view"
-
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
-
-        android:gravity="center"
-        android:padding="20dp"
-        android:text="question_1"
-        android:textColor="@color/black"
+        android:text="A"
         android:textStyle="bold"
-        android:textSize="30sp" />
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="#000000"
+        android:padding="8dp"
+        android:onClick="onClick"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="B"
+        android:textStyle="bold"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="#000000"
+        android:padding="8dp"
+        android:onClick="onClick"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C"
+        android:textStyle="bold"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="#000000"
+        android:padding="8dp"
+        android:onClick="onClick"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice3"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="D"
+        android:textStyle="bold"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="#000000"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice4"
+        android:onClick="onClick" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="1dp"
+        android:orientation="vertical">
 
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/score"
-
-        android:gravity="center"
-        android:padding="20dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/option_one"
-
-            android:layout_width="150dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Score:"
+            android:id="@+id/score_text"
+            android:gravity="center_horizontal"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:background="@android:color/holo_orange_light" />
 
-            style="@style/buttonStyle"
-            android:text="@string/true_button"
-            android:background="@color/colorTrueButton"/>
-
-        <Button
-            android:id="@+id/option_two"
-
-            android:layout_width="150dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            style="@style/buttonStyle"
-            android:text="@string/false_button"
-            android:background="@color/colorFalseButton"/>
+            android:id="@+id/score"
+            android:gravity="center_horizontal"
+            android:text="0/0"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:background="@android:color/holo_orange_light" />
 
     </LinearLayout>
 
-
-
-</RelativeLayout>
+</LinearLayout>

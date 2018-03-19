@@ -10,7 +10,8 @@
         
     </style>
     
-    <style name="STARTButton" parent="Widget.AppCompat.Button.Borderless">
+    <style name="STARTButton" parent="Widget.AppCompat.Button.Borderless"></style>
+        <style name ="option1_button" parent="Widget.AppCompat.Button.Borderless">
 
 
 
