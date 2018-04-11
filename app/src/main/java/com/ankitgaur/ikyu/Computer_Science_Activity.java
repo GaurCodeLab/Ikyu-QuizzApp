@@ -13,23 +13,23 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class General_KNowledge_Activity extends AppCompatActivity {
+public class Computer_Science_Activity extends AppCompatActivity {
 
 
-    private GKQuestionBank mQuestionLibrary = new GKQuestionBank();
+    private CsQuestionBank mCsQuestionBank = new CsQuestionBank();
     private static final long COUNTDOWN_IN_MILLIS = 30000;
     public static final String EXTRA_SCORE = "extraScore";
 
-    private TextView mScoreView;   // view for current total score
-    private TextView mQuestionView;  //current question to answer
-    private Button mButtonChoice1; // multiple choice 1 for mQuestionView
-    private Button mButtonChoice2; // multiple choice 2 for mQuestionView
-    private Button mButtonChoice3; // multiple choice 3 for mQuestionView
-    private Button mButtonChoice4; // multiple choice 4 for mQuestionView
+    private TextView mCsScoreView;   // view for current total score
+    private TextView mCsQuestionView;  //current question to answer
+    private Button mCsButtonChoice1; // multiple choice 1 for mQuestionView
+    private Button mCsButtonChoice2; // multiple choice 2 for mQuestionView
+    private Button mCsButtonChoice3; // multiple choice 3 for mQuestionView
+    private Button mCsButtonChoice4; // multiple choice 4 for mQuestionView
 
-    private String mAnswer;  // correct answer for question in mQuestionView
-    private int mScore = 0;  // current total score
-    private int mQuestionNumber = 0; // current question number
+    private String mCsAnswer;  // correct answer for question in mQuestionView
+    private int mCsScore = 0;  // current total score
+    private int mCsQuestionNumber = 0; // current question number
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
     private ColorStateList textColorDefaultCd;
@@ -39,43 +39,44 @@ public class General_KNowledge_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general__knowledge_);
-        // setup screen for the first question with four alternative to answer
-        mScoreView = (TextView)findViewById(R.id.score);
-        mQuestionView = (TextView)findViewById(R.id.question);
-        mButtonChoice1 = (Button)findViewById(R.id.choice1);
-        mButtonChoice2 = (Button)findViewById(R.id.choice2);
-        mButtonChoice3 = (Button)findViewById(R.id.choice3);
-        mButtonChoice4 = (Button)findViewById(R.id.choice4);
+        setContentView(R.layout.activity_computer__science_);
+
+        mCsScoreView = (TextView)findViewById(R.id.Csscore);
+        mCsQuestionView = (TextView)findViewById(R.id.Csquestion);
+        mCsButtonChoice1 = (Button)findViewById(R.id.Cschoice1);
+        mCsButtonChoice2 = (Button)findViewById(R.id.Cschoice2);
+        mCsButtonChoice3 = (Button)findViewById(R.id.Cschoice3);
+        mCsButtonChoice4 = (Button)findViewById(R.id.Cschoice4);
         textViewCountDown= findViewById(R.id.text_view_countdown);
 
         textColorDefaultCd = textViewCountDown.getTextColors();
 
-        mQuestionLibrary.initQuestions(getApplicationContext());
+
+        mCsQuestionBank.initQuestions(getApplicationContext());
+
         updateQuestion();
         // show current total score for the user
-        updateScore(mScore);
+        updateScore(mCsScore);
     }
 
     private void updateQuestion(){
         // check if we are not outside array bounds for questions
-        if(mQuestionNumber < mQuestionLibrary.getLength() ){
+        if(mCsQuestionNumber < mCsQuestionBank.getLength() ){
             // set the text for new question,
             // and new 4 alternative to answer on four buttons
-         //
-              mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
-            mButtonChoice1.setText(mQuestionLibrary.getChoice(mQuestionNumber, 1));
-            mButtonChoice2.setText(mQuestionLibrary.getChoice(mQuestionNumber, 2));
-            mButtonChoice3.setText(mQuestionLibrary.getChoice(mQuestionNumber, 3));
-            mButtonChoice4.setText(mQuestionLibrary.getChoice(mQuestionNumber,4));
-            mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
-            mQuestionNumber++;
-
+            //
+            mCsQuestionView.setText(mCsQuestionBank.getQuestion(mCsQuestionNumber));
+            mCsButtonChoice1.setText(mCsQuestionBank.getChoice(mCsQuestionNumber, 1));
+            mCsButtonChoice2.setText(mCsQuestionBank.getChoice(mCsQuestionNumber, 2));
+            mCsButtonChoice3.setText(mCsQuestionBank.getChoice(mCsQuestionNumber, 3));
+            mCsButtonChoice4.setText(mCsQuestionBank.getChoice(mCsQuestionNumber,4));
+            mCsAnswer = mCsQuestionBank.getCorrectAnswer(mCsQuestionNumber);
+            mCsQuestionNumber++;
             timeLeftInMillis = COUNTDOWN_IN_MILLIS;
             startCountDown();
         }
         else {
-            Toast.makeText(General_KNowledge_Activity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Computer_Science_Activity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -92,7 +93,7 @@ public class General_KNowledge_Activity extends AppCompatActivity {
             public void onFinish() {
                 timeLeftInMillis = 0;
                 updateCountDownText();
-                updateScore(mScore);
+                updateScore(mCsScore);
             }
         }.start();
     }
@@ -111,32 +112,31 @@ public class General_KNowledge_Activity extends AppCompatActivity {
             textViewCountDown.setTextColor(textColorDefaultCd);
         }
     }
-
-
     // show current total score for the user
     private void updateScore(int point) {
-        mScoreView.setText(""+mScore+"/"+mQuestionLibrary.getLength());
+        mCsScoreView.setText(""+mCsScore+"/"+mCsQuestionBank.getLength());
     }
 
     public void onClick(View view) {
         //all logic for all answers buttons in one method
         Button answer = (Button) view;
         // if the answer is correct, increase the score
-        if (answer.getText().equals(mAnswer)){
+        if (answer.getText().equals(mCsAnswer)){
             countDownTimer.cancel();
-            mScore = mScore + 1;
-            Toast.makeText(General_KNowledge_Activity.this, "Correct!", Toast.LENGTH_SHORT).show();
+            mCsScore = mCsScore + 1;
+            Toast.makeText(Computer_Science_Activity.this, "Correct!", Toast.LENGTH_SHORT).show();
         }else
-            Toast.makeText(General_KNowledge_Activity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Computer_Science_Activity.this, "Wrong!", Toast.LENGTH_SHORT).show();
         // show current total score for the user
-        updateScore(mScore);
+        updateScore(mCsScore);
         // once user answer the question, we move on to the next one, if any
         updateQuestion();
     }
 
+
     private void finishQuiz() {
         Intent resultIntent = new Intent();
-        resultIntent.putExtra(EXTRA_SCORE, mScore);
+        resultIntent.putExtra(EXTRA_SCORE, mCsScore);
         setResult(RESULT_OK, resultIntent);
         finish();
     }
@@ -159,4 +159,19 @@ public class General_KNowledge_Activity extends AppCompatActivity {
             countDownTimer.cancel();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -19,7 +19,10 @@
         <activity android:name=".LogInActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".CategoryActivity" />
-        <activity android:name=".General_KNowledge_Activity"></activity>
+        <activity android:name=".General_KNowledge_Activity" />
+        <activity android:name=".Computer_Science_Activity" />
+        <activity android:name=".Science" />
+        <activity android:name=".Aptitude"></activity>
     </application>
 
 </manifest>

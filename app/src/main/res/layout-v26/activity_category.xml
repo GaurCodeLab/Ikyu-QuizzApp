@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
 
     tools:context="com.ankitgaur.ikyu.CategoryActivity">
 
@@ -42,7 +43,6 @@
                 android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:background="#f0eb79"
-                android:foreground="?attr/selectableItemBackground"
                 android:drawableTop="@drawable/computer"
                 android:paddingTop="25dp"
                 android:text="Computer"
@@ -58,7 +58,7 @@
                 android:layout_weight="1"
                 android:background="#a084d1"
                 android:drawableTop="@drawable/general"
-                android:foreground="?attr/selectableItemBackground"
+
                 android:paddingTop="25dp"
                 android:text="General Knowledge"
                 android:textAllCaps="false"
@@ -99,7 +99,7 @@
                 android:layout_weight="1"
                 android:background="#e7595d"
                 android:drawableLeft="@drawable/invention"
-                android:foreground="?attr/selectableItemBackground"
+
                 android:paddingLeft="45dp"
                 android:paddingTop="25dp"
                 android:text="Aptitude"

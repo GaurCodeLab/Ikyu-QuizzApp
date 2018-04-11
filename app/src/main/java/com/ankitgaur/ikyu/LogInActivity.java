@@ -3,6 +3,7 @@ package com.ankitgaur.ikyu;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,11 +30,29 @@ public class LogInActivity extends AppCompatActivity {
     private EditText mEmailView;
     private EditText mPasswordView;
     FirebaseAuth mAuth;
+    SharedPreferences sp;
+    Button SignIn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        SignIn= findViewById(R.id.login_sign_in_button);
+
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+
+        if(sp.getBoolean("logged",false)){
+            goToCategoryActivity();
+        }
+
+        SignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCategoryActivity();
+                sp.edit().putBoolean("logged",true).apply();
+            }
+        });
 
         mEmailView =  findViewById(R.id.login_email);
         mPasswordView =  findViewById(R.id.login_password);
@@ -52,6 +72,17 @@ public class LogInActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
     }
+
+
+    public void goToCategoryActivity(){
+        Intent i = new Intent(this,CategoryActivity.class);
+        startActivity(i);
+    }
+
+
+
+
+
 
     // Executed when Sign in button pressed
     public void signInExistingUser(View v)   {

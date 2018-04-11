@@ -31,12 +31,12 @@ public class CategoryActivity extends AppCompatActivity {
 
         Button GK;
         Button computer_science;
-        Button Aptitude;
+        Button aptitude;
         Button science;
 
         GK= (Button) findViewById(R.id.b2);
         computer_science= findViewById(R.id.b1);
-        Aptitude=findViewById(R.id.b4);
+        aptitude=findViewById(R.id.b4);
        science= findViewById(R.id.b3);
 
         GK.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +47,29 @@ public class CategoryActivity extends AppCompatActivity {
             }
         });
 
+        computer_science.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(CategoryActivity.this, Computer_Science_Activity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        science.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(CategoryActivity.this, Science.class);
+                startActivity(myIntent);
+            }
+        });
+
+        aptitude.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent =new Intent(CategoryActivity.this, Aptitude.class);
+                startActivity(myIntent);
+            }
+        });
 
 
     }
@@ -59,6 +82,7 @@ public class CategoryActivity extends AppCompatActivity {
 
         if (mDisplayName == null) mDisplayName = "Anonymous";
     }
+
 
 
 
