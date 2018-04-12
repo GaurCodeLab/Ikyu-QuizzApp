@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding= "utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_highest_score"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="16dp"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
+    tools:context="com.ankitgaur.ikyu.Highest_Score">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="107dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="Your score:"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textScore"
+            android:background="@android:color/holo_orange_light"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
+            android:text="Highest score:"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_vertical_margin"
+            android:background="@color/colorAccent"
+            android:id="@+id/textHighScore"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="300dp"
+        android:orientation="horizontal" >
+        <ImageButton
+            android:id="@+id/exit"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:onClick="onExitclick"
+            app:srcCompat="@drawable/exit" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/replay"
+            android:id="@+id/replay"
+            android:layout_marginRight="50dp"
+            android:onClick="onRepeatClick" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
