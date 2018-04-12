@@ -77,6 +77,10 @@ public class Computer_Science_Activity extends AppCompatActivity {
         }
         else {
             Toast.makeText(Computer_Science_Activity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Computer_Science_Activity.this, Highest_Score.class);
+            intent.putExtra("score", mCsScore); // pass the current score to the second screen
+            startActivity(intent);
+
 
         }
     }

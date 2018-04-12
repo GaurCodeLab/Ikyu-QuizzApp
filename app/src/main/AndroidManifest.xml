@@ -22,7 +22,8 @@
         <activity android:name=".General_KNowledge_Activity" />
         <activity android:name=".Computer_Science_Activity" />
         <activity android:name=".Science" />
-        <activity android:name=".Aptitude"></activity>
+        <activity android:name=".Aptitude" />
+        <activity android:name=".Highest_Score"></activity>
     </application>
 
 </manifest>

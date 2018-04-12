@@ -35,7 +35,16 @@
 
         app:srcCompat="@mipmap/ic_launcher_foreground" />
 
-
+    <ImageButton
+        android:id="@+id/Exit_Button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginTop="1dp"
+        android:onClick="exit"
+        app:srcCompat="@drawable/shutdown" />
 
 
 </RelativeLayout>

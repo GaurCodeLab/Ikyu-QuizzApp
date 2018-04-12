@@ -76,6 +76,9 @@ public class General_KNowledge_Activity extends AppCompatActivity {
         }
         else {
             Toast.makeText(General_KNowledge_Activity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(General_KNowledge_Activity.this, Highest_Score.class);
+            intent.putExtra("score", mScore); // pass the current score to the second screen
+            startActivity(intent);
 
         }
     }
