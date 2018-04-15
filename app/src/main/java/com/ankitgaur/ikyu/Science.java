@@ -16,7 +16,7 @@ import java.util.Locale;
 public class Science extends AppCompatActivity {
 
     private ScienceQuestionBank mQuestionBank = new ScienceQuestionBank();
-    private static final long COUNTDOWN_IN_MILLIS = 30000;
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
     public static final String EXTRA_SCORE = "extraScore";
     private TextView mScoreView;   // view for current total score
     private TextView mQuestionView;  //current question to answer
@@ -24,7 +24,6 @@ public class Science extends AppCompatActivity {
     private Button mButtonChoice2; // multiple choice 2 for mQuestionView
     private Button mButtonChoice3; // multiple choice 3 for mQuestionView
     private Button mButtonChoice4; // multiple choice 4 for mQuestionView
-
     private String mAnswer;  // correct answer for question in mQuestionView
     private int mScore = 0;  // current total score
     private int mQuestionNumber = 0; // current question number
@@ -34,21 +33,18 @@ public class Science extends AppCompatActivity {
     private TextView textViewCountDown;
     private long backPressedTime;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_science);
 
         // setup screen for the first question with four alternative to answer
-        mScoreView = (TextView)findViewById(R.id.score);
-        mQuestionView = (TextView)findViewById(R.id.question);
-        mButtonChoice1 = (Button)findViewById(R.id.choice1);
-        mButtonChoice2 = (Button)findViewById(R.id.choice2);
-        mButtonChoice3 = (Button)findViewById(R.id.choice3);
-        mButtonChoice4 = (Button)findViewById(R.id.choice4);
+        mScoreView = findViewById(R.id.score);
+        mQuestionView = findViewById(R.id.question);
+        mButtonChoice1 = findViewById(R.id.choice1);
+        mButtonChoice2 = findViewById(R.id.choice2);
+        mButtonChoice3 = findViewById(R.id.choice3);
+        mButtonChoice4 = findViewById(R.id.choice4);
         textViewCountDown= findViewById(R.id.text_view_countdown);
 
         textColorDefaultCd = textViewCountDown.getTextColors();
@@ -96,8 +92,10 @@ public class Science extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timeLeftInMillis = 0;
+                updateQuestion();
                 updateCountDownText();
                 updateScore(mScore);
+                countDownTimer.cancel();
             }
         }.start();
     }

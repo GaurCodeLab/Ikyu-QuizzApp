@@ -17,7 +17,7 @@ public class Computer_Science_Activity extends AppCompatActivity {
 
 
     private CsQuestionBank mCsQuestionBank = new CsQuestionBank();
-    private static final long COUNTDOWN_IN_MILLIS = 30000;
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
     public static final String EXTRA_SCORE = "extraScore";
 
     private TextView mCsScoreView;   // view for current total score
@@ -96,8 +96,11 @@ public class Computer_Science_Activity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timeLeftInMillis = 0;
+                updateQuestion();
                 updateCountDownText();
                 updateScore(mCsScore);
+                countDownTimer.cancel();
+
             }
         }.start();
     }

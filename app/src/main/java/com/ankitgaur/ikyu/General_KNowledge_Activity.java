@@ -17,7 +17,7 @@ public class General_KNowledge_Activity extends AppCompatActivity {
 
 
     private GKQuestionBank mQuestionLibrary = new GKQuestionBank();
-    private static final long COUNTDOWN_IN_MILLIS = 30000;
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
     public static final String EXTRA_SCORE = "extraScore";
 
     private TextView mScoreView;   // view for current total score
@@ -94,8 +94,10 @@ public class General_KNowledge_Activity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timeLeftInMillis = 0;
+                updateQuestion();
                 updateCountDownText();
                 updateScore(mScore);
+                countDownTimer.cancel();
             }
         }.start();
     }

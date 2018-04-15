@@ -9,7 +9,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    android:background="@drawable/num_background"
+    android:background="@drawable/newbackground"
 
     tools:context=".MainActivity">
 
@@ -43,7 +43,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="1dp"
         android:layout_marginTop="1dp"
-        android:onClick="exit"
+        android:onClick="onClickexit"
         app:srcCompat="@drawable/shutdown" />
 
 

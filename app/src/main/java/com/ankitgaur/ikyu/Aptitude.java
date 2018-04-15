@@ -17,8 +17,10 @@ public class Aptitude extends AppCompatActivity {
 
 
     private AptitudeQuestionBank mQuestionBank = new AptitudeQuestionBank();
-    private static final long COUNTDOWN_IN_MILLIS = 30000;
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
     public static final String EXTRA_SCORE = "extraScore";
+    boolean nextflag = false;
+    boolean istimefinished = false;
 
     private TextView mScoreView;   // view for current total score
     private TextView mQuestionView;  //current question to answer
@@ -96,8 +98,11 @@ public class Aptitude extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timeLeftInMillis = 0;
+                updateQuestion();
                 updateCountDownText();
                 updateScore(mScore);
+                countDownTimer.cancel();
+
             }
         }.start();
     }
